@@ -13,8 +13,6 @@ function getMessage() {
     }
 }
 
-
-
 function reverseMessageA(msg) {
     let revMessage = "";
 
@@ -36,10 +34,6 @@ function reverseMessageB(msg){
     
     return revMessage;
 }
-
-
-
-
 
 // Final Step - view
 function displayMessage(message) {

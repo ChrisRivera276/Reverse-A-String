@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="/CSS/site.css">
     <link rel="stylesheet" href="/CSS/prism.css">
 
-    <!-- favicon needs to be inserted!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+    <!-- favicon needs to be -->
     <link rel="icon" type="image/png" href="/img/logo_favicon.ico">
 
 
@@ -56,11 +56,16 @@
                         <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">The Repo</a>
+                        <a class="nav-link" href="https://github.com/ChrisRivera276/Reverse-A-String"
+                            target="_blank">The Repo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="https://portfolio-by-chris-rivera.netlify.app/"
+                            target="_blank">Portfolio</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://taco-cat-by-chris-rivera.netlify.app/" target="_blank">Next
+                            Project</a>
                 </ul>
             </div>
         </div>
@@ -68,29 +73,54 @@
 
     <main class="flex-shrink-0">
         <div class="container mt-5">
-            <h1>THE CODE for App Name</h1>
+            <h1>THE CODE for Reverse-A-String</h1>
             <div class="row">
-                <div class="col-12 col-lg-8 border border-danger">
+                <div class="col">
                     <pre class="line-numbers">
                         <code class="language-javascript">
                             // Step One - controller accept request
                             function getMessage() {
                                 let msg = document.getElementById("txtmessage").value;
-                                displayMessage(msg);
+                                
+                                // validate if the msg not equal to empty string
+                                if (msg != '') {
+                                   msg = msg.toLowerCase();
+                                    let revMessage = reverseMessageB(msg);
+                                    displayMessage(revMessage);
+                                    
+                                } else {
+                                   alert("You must enter a string")
+                                }
                             }
+                            
+                            function reverseMessageA(msg) {
+                                let revMessage = "";
+                            
+                                // decrimenting loop
+                                // 0 1 2 3 4
+                                // B o b b y
+                                for (let index = msg.length - 1; index >= 0; index--) {
+                                    let char = msg[index];
+                                    revMessage += char;
+                                }
+                            
+                                return revMessage;
+                            }
+                            
+                            function reverseMessageB(msg){
+                            
+                                let revMessage = "";
+                                revMessage = msg.split("").reverse().join("");
+                                
+                                return revMessage;
+                            }
+                            
                             // Final Step - view
                             function displayMessage(message) {
                             
                                 //fist get ol element from page
                                 element = document.getElementById("results");
-                                //next create new li element
-                                let item = document.createElement("li");
-                                //add classes to li element
-                                item.classList.add("list-group-item");
-                                // set message for li element
-                                item.innerHTML = message;
-                                // add new item to list
-                                element.appendChild(item);
+                                element.innerHTML = message;
                             }
                         </code>
                     </pre>
